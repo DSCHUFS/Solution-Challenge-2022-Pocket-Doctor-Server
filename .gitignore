@@ -3,3 +3,9 @@ node_modules
 
 ### dotenv ###
 .env
+
+### database query ###
+.sql
+
+### Mac DS_Store ###
+.DS_Store
