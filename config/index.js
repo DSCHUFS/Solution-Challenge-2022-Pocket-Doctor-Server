@@ -8,11 +8,11 @@ module.exports = {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
-        database: process.env.MYSQL_DB,
+        database: process.env.DB_NAME,
         port: process.env.DB_PORT,
         connectionLimit: process.env.DB_CONNECT,
     },
-    /*
+    
     jwt: {
         secretKey: process.env.JWT_SECRET_KEY,
         options: { 
@@ -21,6 +21,4 @@ module.exports = {
             issuer: process.env.JWT_ISSUER
         }
     }
-    */
-
 }
