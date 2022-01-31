@@ -45,6 +45,35 @@ const controller = {
         }
       },
       
+      async loginUser(req, res, next) {
+        try {
+          const body = req.body;
+          const email = param(body, 'email');
+          const password = param(body, 'password');
+    
+          const [results] = await pool.query(
+            `
+              SELECT * 
+              FROM users 
+              WHERE email = ?
+              AND password = ?;
+            `,
+            [email, password]
+          );
+    
+          if (results.length < 1) {
+            throw error(`이메일 또는 비밀번호가 일치하지 않습니다.`);
+          } else {
+            const user_no = results[0].no;
+            const email = results[0].email;
+            const token = utils.sign({ user_no, email });
+            next({ token });
+          }
+        } catch (e) {
+          next(e);
+        }
+      },
+    
 };
 
 module.exports = controller;
