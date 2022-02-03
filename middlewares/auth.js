@@ -12,7 +12,7 @@ module.exports = {
         try {
             if (token === undefined) throw Error('Undefined Token')
             const verified = auth.verify(token)
-            const user_no = verified.no
+            const user_no = verified.user_no
 
             const email = verified.email
             const [results] = await pool.query(`
