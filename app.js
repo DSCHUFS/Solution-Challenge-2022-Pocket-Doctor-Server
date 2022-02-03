@@ -20,8 +20,9 @@ app.use(json.result);
 app.use(json.internalServerError);
 
 const hostname = '10.178.0.3'
-app.listen(process.env.PORT, async () => {
-    console.log(`Server running at http://${hostname}:${process.env.PORT}`);
+const port = '3000'
+app.listen(port, async () => {
+    console.log(`Server running at http://${hostname}:${port}`);
   });
 
 // module.exports = app;
