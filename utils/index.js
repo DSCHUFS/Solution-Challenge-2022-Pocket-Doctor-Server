@@ -6,7 +6,7 @@ const config = require('../config');
 module.exports = {
   sign(user) {
     const payload = {
-      user_no: user.no,
+      user_no: user.user_no,
       email: user.email,
     };
     const token = JWT.sign(payload, config.jwt.secretKey, config.jwt.options);
