@@ -19,10 +19,14 @@ app.use(json.notFound);
 app.use(json.result);
 app.use(json.internalServerError);
 
-const hostname = '10.178.0.3'
+// const hostname = '10.178.0.3'
 const port = '3000'
+// app.listen(port, async () => {
+//     console.log(`Server running at http://${hostname}:${port}`);
+//   });
+
 app.listen(port, async () => {
-    console.log(`Server running at http://${hostname}:${port}`);
-  });
+  console.log(`The server starts at ${port}`);
+});
 
 // module.exports = app;
