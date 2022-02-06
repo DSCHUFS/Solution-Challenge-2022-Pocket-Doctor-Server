@@ -8,7 +8,6 @@ on: # Event 감지
       - main
 jobs: # Job 설정
   build:
-	# 내 EC2는 CentOS라서 바꿔야 할 것 같지만, 여기는 아래 상태로 둔다. 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code. # Repo checkout
@@ -27,7 +26,6 @@ jobs: # Job 설정
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-	        # 아래 볼드 표시한 부분을 깃헙 리파지토리에서 지정한 이름으로 작성해주세요!**
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
