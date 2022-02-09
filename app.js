@@ -24,4 +24,5 @@ app.listen(port, async () => {
   console.log(`The server starts at ${port}`);
 });
 
+// ec2 help
 // module.exports = app;
