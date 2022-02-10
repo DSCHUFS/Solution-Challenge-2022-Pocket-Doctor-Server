@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/user', require('./routes/user'));
+app.use('/home', require('./routes/home'));
 
 app.use(json.notFound);
 app.use(json.result);

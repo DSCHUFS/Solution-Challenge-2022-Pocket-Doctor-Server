@@ -78,7 +78,6 @@ const controller = {
       async getUser(req, res, next) {
         try {
           const user_no = req.user.user_no;
-          console.log(user_no);
           const [result] = await pool.query(
             `
               SELECT no, email, name, phone_number
