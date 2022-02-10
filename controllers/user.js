@@ -34,7 +34,7 @@ const controller = {
               [email, password, name, phone_number]
             );
             await connection.commit();
-          next({ message: `회원가입이 완료되었습니다.` });
+          next({ message: `회원가입이 완료되었습니다.`, status: 200 });
           } catch (e) {
             await connection.rollback();
           } finally {
@@ -67,7 +67,7 @@ const controller = {
             const user_no = results[0].no;
             const email = results[0].email;
             const token = utils.sign({ user_no, email });
-            next({ token });
+            next({ token, message: "로그인되었습니다.", status: 200 });
           }
         } catch (e) {
           next(e);
@@ -78,7 +78,7 @@ const controller = {
       async getUser(req, res, next) {
         try {
           const user_no = req.user.user_no;
-    
+          console.log(user_no);
           const [result] = await pool.query(
             `
               SELECT no, email, name, phone_number
@@ -92,7 +92,7 @@ const controller = {
           if (result.length < 1)
             throw error(`비활성화된 계정이거나 정보가 존재하지 않는 계정입니다.`);
     
-          next({ ...result[0] });
+          next({ ...result[0], message: "내 정보를 조회했습니다.", status: 200 });
         } catch (e) {
           next(e);
         }
@@ -134,7 +134,7 @@ const controller = {
             );
     
             await connection.commit();
-            next({ message: `계정 정보가 정상적으로 변경되었습니다.` });
+            next({ message: `계정 정보가 정상적으로 변경되었습니다.`, status: 200 });
           } catch (e) {
             await connection.rollback();
           } finally {
