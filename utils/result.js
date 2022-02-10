@@ -7,7 +7,6 @@ module.exports = {
       if (data === status.name) {
         err.code = status.code;
         err.message = status.defaultMessage;
-        console.log("~~", data, err.message);
       }
     });
     err.code = err.code || 400;
