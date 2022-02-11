@@ -29,7 +29,7 @@ const controller = {
 
       const [result] = await pool.query(
         `
-          SELECT h.name as hospital_name, d.name as doctor_name, d.subject as doctor_subject, h.homepage as hospital_hompage, h.time as hospital_time, h.location as hospital_location
+          SELECT h.no as hospital_no, h.name as hospital_name, d.name as doctor_name, d.subject as doctor_subject, h.homepage as hospital_hompage, h.time as hospital_time, h.location as hospital_location
           FROM hospitals as h, doctors as d
           WHERE d.no = ? and h.no = d.hospital_no
         `,
@@ -37,6 +37,40 @@ const controller = {
       );
 
       next({ ...result[0], message: "병원 정보를 조회했습니다.", status: 200 });
+    } catch (e) {
+      next(e);
+    }
+  },
+
+  async createReservation(req, res, next) {
+    try {
+      const user_no = req.user.user_no;
+      const body = req.body;
+      const hospital_no = param(body, 'hospital_no');
+      const doctor_no = param(body, 'doctor_no');
+      const start_datetime = param(body, 'start_datetime');
+      const description = param(body, 'description');
+      const way = param(body, 'way');
+
+      const connection = await pool.getConnection(async (conn) => conn);
+      try {
+        await connection.beginTransaction();
+        await connection.query(
+          `
+            INSERT INTO
+            reservations(user_no, hospital_no, doctor_no, description, start_datetime, way)
+            VALUE
+            (?, ?, ?, ?, ?, ?);
+          `,
+          [user_no, hospital_no, doctor_no, description, start_datetime, way]
+        );
+        await connection.commit();
+      next({ message: `예약이 완료되었습니다.`, status: 200 });
+      } catch (e) {
+        await connection.rollback();
+      } finally {
+        connection.release();
+      }
     } catch (e) {
       next(e);
     }
