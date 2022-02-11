@@ -5,6 +5,6 @@ const { checkToken } = require('../middlewares/auth')
 
 router.get('/doctor', checkToken, home.getDoctor)
 router.get('/hospital', checkToken, home.getHospital)
-// router.post('/reservation', checkToken, home.createReservation)
+router.post('/reservation', checkToken, home.createReservation)
 
 module.exports = router;
