@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/user', require('./routes/user'));
 app.use('/home', require('./routes/home'));
+app.use('/history', require('./routes/history'));
 
 app.use(json.notFound);
 app.use(json.result);
@@ -25,5 +26,4 @@ app.listen(port, async () => {
   console.log(`The server starts at ${port}`);
 });
 
-// ec2 help
 // module.exports = app;
