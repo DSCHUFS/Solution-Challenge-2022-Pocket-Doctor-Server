@@ -62,7 +62,8 @@ const controller = {
           );
     
           if (results.length < 1) {
-            throw error(`이메일 또는 비밀번호가 일치하지 않습니다.`);
+            // throw error(`이메일 또는 비밀번호가 일치하지 않습니다.`);
+            next({ token: "", message: "이메일 또는 비밀번호가 일치하지 않습니다.", status: 400 });
           } else {
             const user_no = results[0].no;
             const email = results[0].email;

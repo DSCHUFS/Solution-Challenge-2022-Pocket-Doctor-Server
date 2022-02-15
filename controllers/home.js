@@ -50,7 +50,7 @@ const controller = {
       const doctor_no = param(body, 'doctor_no');
       const start_datetime = param(body, 'start_datetime');
       const description = param(body, 'description');
-      const way = param(body, 'way');
+      const is_video = param(body, 'is_video');
 
       const connection = await pool.getConnection(async (conn) => conn);
       try {
@@ -58,11 +58,11 @@ const controller = {
         await connection.query(
           `
             INSERT INTO
-            reservations(user_no, hospital_no, doctor_no, description, start_datetime, way)
+            reservations(user_no, hospital_no, doctor_no, description, start_datetime, is_video)
             VALUE
             (?, ?, ?, ?, ?, ?);
           `,
-          [user_no, hospital_no, doctor_no, description, start_datetime, way]
+          [user_no, hospital_no, doctor_no, description, start_datetime, is_video]
         );
         await connection.commit();
       next({ message: `예약이 완료되었습니다.`, status: 200 });
