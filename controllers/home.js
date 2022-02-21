@@ -11,7 +11,7 @@ const controller = {
     try {
       const [result] = await pool.query(
         `
-          SELECT d.no as doctor_no, d.name as doctor_name, h.name as hospital_name, d.subject as doctor_subject, d.enabled as doctor_enabled
+          SELECT d.no as doctor_no, d.name as doctor_name, h.name as hospital_name, d.subject as doctor_subject, if(d.enabled, 'true', 'false') as doctor_enabled
           FROM doctors as d, hospitals as h
           WHERE d.hospital_no = h.no
         `,
@@ -29,7 +29,7 @@ const controller = {
 
       const [result] = await pool.query(
         `
-          SELECT h.no as hospital_no, h.name as hospital_name, d.name as doctor_name, d.subject as doctor_subject, h.homepage as hospital_hompage, h.time as hospital_time, h.location as hospital_location
+          SELECT h.no as hospital_no, h.homepage as hospital_hompage, h.time as hospital_time, h.location as hospital_location
           FROM hospitals as h, doctors as d
           WHERE d.no = ? and h.no = d.hospital_no
         `,
