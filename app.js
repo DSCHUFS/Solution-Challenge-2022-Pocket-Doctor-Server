@@ -17,7 +17,7 @@ app.use('/user', require('./routes/user'));
 app.use('/home', require('./routes/home'));
 app.use('/history', require('./routes/history'));
 
-app.use(json.notFound);
+// app.use(json.notFound);
 app.use(json.result);
 app.use(json.internalServerError);
 
