@@ -23,5 +23,5 @@
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
-  "proxy": "http://10.178.0.3:3000/"
+  "proxy": "http://172.31.38.69:3000/"
 }
