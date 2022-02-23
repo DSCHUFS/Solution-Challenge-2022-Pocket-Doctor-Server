@@ -1,4 +1,3 @@
-// const express = require('express');
 const JWT = require('jsonwebtoken');
 const dayjs = require('dayjs');
 const config = require('../config');
@@ -30,8 +29,10 @@ module.exports = {
   formatting_datetime(results) {
     results.map((result) => {
       result.start_datetime = dayjs(result.start_datetime).format(
-        'YYYY-MM-DDTHH:mm'
+        'YYYY-MM-DD HH:mm:00'
       );
+
+      /*
       result.end_datetime = dayjs(result.end_datetime).format(
         'YYYY-MM-DDTHH:mm'
       );
@@ -49,8 +50,9 @@ module.exports = {
           ? null
           : dayjs(result.delete_datetime).format(
               'YYYY년 MM월 DD일 HH시 mm분 ss초'
-            );
+            )*/;
     });
+    
     return results;
   },
 };

@@ -1,9 +1,6 @@
 const { error } = require('../utils');
 
 const json = {
-  // async notFound(req, res, next) {
-  //   next(error(`notFound`));
-  // },
   async result(data, req, res, next) {
     console.log(data);
     if (data instanceof Error) {
