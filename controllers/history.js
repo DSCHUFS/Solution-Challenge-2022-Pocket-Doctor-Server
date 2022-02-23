@@ -14,9 +14,9 @@ const controller = {
         `
           SELECT r.no as reservation_no, u.name as user_name, d.name as doctor_name, h.name as hospital_name, r.start_datetime, r.description
           FROM reservations as r, users as u, doctors as d, hospitals as h
-          WHERE u.no = ? and r.doctor_no = d.no and r.hospital_no = h.no
+          WHERE u.no = ? and r.user_no = ? and r.doctor_no = d.no and r.hospital_no = h.no
         `,
-        [user_no]
+        [user_no, user_no]
       );
 
       next({ result, message: "전체 예약 정보를 조회했습니다.", status: 200 });
