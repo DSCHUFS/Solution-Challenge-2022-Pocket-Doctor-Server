@@ -19,16 +19,7 @@ const controller = {
         [user_no]
       );
 
-      const [user_name] = await pool.query(
-        `
-          SELECT name
-          FROM users
-          WHERE no = ?
-        `,
-        [user_no]
-      )
-
-      next({ result, user_name: user_name[0].name, message: "전체 예약 정보를 조회했습니다.", status: 200 });
+      next({ result, message: "전체 예약 정보를 조회했습니다.", status: 200 });
     } catch (e) {
       next(e);
     }
