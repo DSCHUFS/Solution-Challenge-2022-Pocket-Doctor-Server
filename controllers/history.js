@@ -19,6 +19,7 @@ const controller = {
         [user_no, user_no]
       );
 
+      utils.formatting_datetime(result);
       next({ result, message: "전체 예약 정보를 조회했습니다.", status: 200 });
     } catch (e) {
       next(e);
