@@ -25,6 +25,35 @@ const controller = {
       next(e);
     }
   },
+
+  async createMedicine(req, res, next) {
+    try {
+      const body = req.body;
+      const medicine_name = param(body, 'medicine_name');
+
+      const connection = await pool.getConnection(async (conn) => conn);
+      try {
+        await connection.beginTransaction();
+        const [result] = await pool.query(
+          `
+            SELECT info as medicine_info
+            FROM medicines
+            WHERE name = ?
+          `,
+          [medicine_name]
+        );
+        await connection.commit();
+      next({ ...result[0], message: `복약 정보를 생성했습니다.`, status: 200 });
+      } catch (e) {
+        await connection.rollback();
+      } finally {
+        connection.release();
+      }
+    } catch (e) {
+      next(e);
+    }
+  },
+
 };
 
 module.exports = controller;
