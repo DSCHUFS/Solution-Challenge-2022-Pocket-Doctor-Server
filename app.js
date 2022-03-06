@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/user', require('./routes/user'));
 app.use('/home', require('./routes/home'));
 app.use('/history', require('./routes/history'));
+app.use('/email', require('./routes/email'));
 
 app.use(json.result);
 app.use(json.internalServerError);
