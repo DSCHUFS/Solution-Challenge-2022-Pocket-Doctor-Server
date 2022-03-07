@@ -31,26 +31,6 @@ module.exports = {
       result.start_datetime = dayjs(result.start_datetime).format(
         'YYYY-MM-DD HH:mm:00'
       );
-
-      /*
-      result.end_datetime = dayjs(result.end_datetime).format(
-        'YYYY-MM-DDTHH:mm'
-      );
-      result.create_datetime = dayjs(result.create_datetime).format(
-        'YYYY년 MM월 DD일 HH시 mm분 ss초'
-      );
-      result.update_datetime =
-        result.update_datetime === null
-          ? null
-          : dayjs(result.update_datetime).format(
-              'YYYY년 MM월 DD일 HH시 mm분 ss초'
-            );
-      result.delete_datetime =
-        result.delete_datetime === null
-          ? null
-          : dayjs(result.delete_datetime).format(
-              'YYYY년 MM월 DD일 HH시 mm분 ss초'
-            )*/;
     });
     
     return results;

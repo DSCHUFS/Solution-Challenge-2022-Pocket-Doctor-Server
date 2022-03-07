@@ -116,7 +116,7 @@ const controller = {
             [user_no]
           );
     
-          if (result.length < 1) throw error(`해당 학생이 존재하지 않습니다.`);
+          if (result.length < 1) throw error(`해당 계정이 존재하지 않습니다.`);
     
           const connection = await pool.getConnection(async (conn) => conn);
           try {
@@ -126,7 +126,7 @@ const controller = {
                 UPDATE users
                 SET
                 name = ?,
-                password = ?,
+                password = ?
                 WHERE no = ?
                 AND enabled = 1;
               `,
