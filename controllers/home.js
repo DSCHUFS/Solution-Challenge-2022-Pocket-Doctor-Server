@@ -17,6 +17,9 @@ const controller = {
         `,
       );
 
+      if (result.length > 1)
+        throw error("전체 의사 정보를 조회하지 못했습니다.");
+
       next({ result, message: "전체 의사 정보를 조회했습니다.", status: 200 });
     } catch (e) {
       next(e);
@@ -35,6 +38,9 @@ const controller = {
         `,
         [doctor_no]
       );
+
+      if (result.length < 1)
+        throw error(`병원 정보를 조회하지 못했습니다.`);
 
       next({ ...result[0], message: "병원 정보를 조회했습니다.", status: 200 });
     } catch (e) {
