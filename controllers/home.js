@@ -17,7 +17,7 @@ const controller = {
         `,
       );
 
-      if (result.length > 1)
+      if (result.length < 1)
         throw error("전체 의사 정보를 조회하지 못했습니다.");
 
       next({ result, message: "전체 의사 정보를 조회했습니다.", status: 200 });
