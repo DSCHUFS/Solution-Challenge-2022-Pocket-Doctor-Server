@@ -52,7 +52,7 @@ const controller = {
         if (error) {
           next(error);
         }
-        res.status(200).json({ auth_num, message: "이메일을 전송했습니다.", status: 200 });
+        res.status(200).json({ auth_num, email: email, message: "이메일을 전송했습니다.", status: 200 });
         transporter.close();
       });
     } catch (e) {
