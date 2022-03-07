@@ -31,6 +31,18 @@ const controller = {
       const body = req.body;
       const medicine_name = param(body, 'medicine_name');
 
+      const [result] = await pool.query(
+        `
+          SELECT * 
+          FROM medicines
+          WHERE name = ?
+          AND enabled = 1;
+        `,
+        [medicine_name]
+      );
+      
+      if (result.length < 1) throw error("복약 정보가 등록되어 있지 않습니다.");
+
       const connection = await pool.getConnection(async (conn) => conn);
       try {
         await connection.beginTransaction();
