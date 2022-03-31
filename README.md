@@ -22,7 +22,14 @@ Demo video : https://youtu.be/aDjAyT7Mjsk
 
 
 ## 💊 Installation
-> git clone https://github.com/DSCHUFS/Solution-Challenge-2022-Pocket-Doctor-Server.git \
+> git clone https://github.com/DSCHUFS/Solution-Challenge-2022-Pocket-Doctor-Server.git
+
+AND
+
+> cd Solution-Challenge-2022-Pocket-Doctor-Server
+
+AND
+
 > npm install
 
 
