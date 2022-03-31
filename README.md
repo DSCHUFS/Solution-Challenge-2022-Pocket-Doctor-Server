@@ -15,7 +15,6 @@ Duration : 8 Weeks
 
 
 ## 💊 About the project
----
 Pocket Doctor is a non-face-to-face medical service app for mentally ill patients. It is developed using Android with Kotlin. You can choose a doctor who you want, and make reservations for non-face-to-face consultation.
 
 Demo video : https://youtu.be/aDjAyT7Mjsk
@@ -23,14 +22,12 @@ Demo video : https://youtu.be/aDjAyT7Mjsk
 
 
 ## 💊 Installation
----
 > git clone https://github.com/DSCHUFS/Solution-Challenge-2022-Pocket-Doctor-Server.git \
 > npm install
 
 
 
 ## 💊 Usage
----
 > npm run start
 
 OR
@@ -38,16 +35,16 @@ OR
 > npm start
 
 
+
 ## 💊 Stacks Used
----
 - Node.js
 - Express.js
 - AWS RDS
 - AWS EC2
 
 
+
 ## 💊 Contributor
----
 ### Mobile Frontend - Android
 <table>
   <tr>
@@ -60,7 +57,7 @@ OR
   </tr>
 </table>
 
-### Backend
+### Backend - Server
 <table>
   <tr>
     <td><a href="https://github.com/NakyungIm">임나경</a></td>
@@ -71,6 +68,6 @@ OR
 </table>
 
 
+
 ## 💊 License
----
 [MIT](https://choosealicense.com/licenses/mit/)
